@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.administrator.myapplication.base.BaseActivity;
 import com.example.administrator.myapplication.component.QqConmentActivity;
 import com.example.administrator.myapplication.component.TextViewLinkActivity;
+import com.example.administrator.myapplication.view.EditTextWithDel;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,6 +27,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.nav)
     Button navBtn;
+
+    @BindView(R.id.edit_del)
+    EditTextWithDel editTextWithDel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
