@@ -24,6 +24,9 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.qq)
     Button qq_conment;
 
+    @BindView(R.id.nav)
+    Button navBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,12 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.qq)
     public void goQqComment(View view) {
         mIntent = new Intent(this, QqConmentActivity.class);
+        startActivity(mIntent);
+    }
+
+    @OnClick(R.id.nav)
+    public void goNav() {
+        mIntent = new Intent(this, Main2Activity.class);
         startActivity(mIntent);
     }
 }
