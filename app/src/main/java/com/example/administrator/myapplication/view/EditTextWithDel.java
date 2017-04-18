@@ -69,6 +69,7 @@ public class EditTextWithDel extends android.support.v7.widget.AppCompatEditText
                 setDrawable();
             }
         });
+        setDrawable();
     }
 
     /**
@@ -87,7 +88,7 @@ public class EditTextWithDel extends android.support.v7.widget.AppCompatEditText
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (imgAble != null && event.getAction() == MotionEvent.ACTION_UP) {
+        if (imgInable != null && event.getAction() == MotionEvent.ACTION_UP) {
             int eventX = (int) event.getRawX();
             int eventY = (int) event.getRawY();
             Log.e(TAG, "eventX = " + eventX + "; eventY = " + eventY);
