@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.administrator.myapplication.base.BaseActivity;
 import com.example.administrator.myapplication.component.QqConmentActivity;
+import com.example.administrator.myapplication.component.ShowImageViewActivity;
 import com.example.administrator.myapplication.component.TextViewLinkActivity;
 import com.example.administrator.myapplication.view.EditTextWithDel;
 
@@ -30,6 +31,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.edit_del)
     EditTextWithDel editTextWithDel;
+
+    @BindView(R.id.imgView)
+    Button imgView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,12 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.nav)
     public void goNav() {
         mIntent = new Intent(this, Main2Activity.class);
+        startActivity(mIntent);
+    }
+
+    @OnClick(R.id.imgView)
+    public void showImgView() {
+        mIntent = new Intent(this, ShowImageViewActivity.class);
         startActivity(mIntent);
     }
 }
