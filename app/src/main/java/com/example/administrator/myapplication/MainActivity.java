@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.administrator.myapplication.base.BaseActivity;
+import com.example.administrator.myapplication.component.DateTimeDemoActivity;
 import com.example.administrator.myapplication.component.ProgressBarActivity;
 import com.example.administrator.myapplication.component.QqConmentActivity;
 import com.example.administrator.myapplication.component.ShowImageViewActivity;
@@ -94,12 +95,18 @@ public class MainActivity extends BaseActivity {
         startActivity(mIntent);
     }
 
-    @OnClick({R.id.progressbar})
+    @OnClick({R.id.progressbar, R.id.date_time})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
                 mIntent = new Intent(this, ProgressBarActivity.class);
                 startActivity(mIntent);
+                break;
+            case R.id.date_time:
+                mIntent = new Intent(this, DateTimeDemoActivity.class);
+                startActivity(mIntent);
+                break;
+            default:
                 break;
         }
     }

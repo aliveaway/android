@@ -27,7 +27,8 @@
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".component.ShowImageViewActivity" />
-        <activity android:name=".component.ProgressBarActivity"></activity>
+        <activity android:name=".component.ProgressBarActivity" />
+        <activity android:name=".component.DateTimeDemoActivity"></activity>
     </application>
 
 </manifest>
