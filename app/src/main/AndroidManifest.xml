@@ -26,7 +26,8 @@
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".component.ShowImageViewActivity"></activity>
+        <activity android:name=".component.ShowImageViewActivity" />
+        <activity android:name=".component.ProgressBarActivity"></activity>
     </application>
 
 </manifest>
