@@ -14,6 +14,7 @@ import com.example.administrator.myapplication.component.ProgressBarActivity;
 import com.example.administrator.myapplication.component.QqConmentActivity;
 import com.example.administrator.myapplication.component.ShowImageViewActivity;
 import com.example.administrator.myapplication.component.TextViewLinkActivity;
+import com.example.administrator.myapplication.component.listview.ListActivity;
 import com.example.administrator.myapplication.view.EditTextWithDel;
 
 import butterknife.BindView;
@@ -39,6 +40,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.progressbar)
     Button progressbar;
+
+    @BindView(R.id.go_list)
+    Button goList;
 
 
     @Override
@@ -95,7 +99,7 @@ public class MainActivity extends BaseActivity {
         startActivity(mIntent);
     }
 
-    @OnClick({R.id.progressbar, R.id.date_time})
+    @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -104,6 +108,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.date_time:
                 mIntent = new Intent(this, DateTimeDemoActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.go_list:
+                mIntent = new Intent(this, ListActivity.class);
                 startActivity(mIntent);
                 break;
             default:
