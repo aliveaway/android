@@ -29,7 +29,8 @@
         <activity android:name=".component.ShowImageViewActivity" />
         <activity android:name=".component.ProgressBarActivity" />
         <activity android:name=".component.DateTimeDemoActivity" />
-        <activity android:name=".component.listview.ListActivity"></activity>
+        <activity android:name=".component.listview.ListActivity" />
+        <activity android:name=".spinner.SpinnerActivity"></activity>
     </application>
 
 </manifest>

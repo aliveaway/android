@@ -15,6 +15,7 @@ import com.example.administrator.myapplication.component.QqConmentActivity;
 import com.example.administrator.myapplication.component.ShowImageViewActivity;
 import com.example.administrator.myapplication.component.TextViewLinkActivity;
 import com.example.administrator.myapplication.component.listview.ListActivity;
+import com.example.administrator.myapplication.spinner.SpinnerActivity;
 import com.example.administrator.myapplication.view.EditTextWithDel;
 
 import butterknife.BindView;
@@ -44,6 +45,9 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.go_list)
     Button goList;
 
+
+    @BindView(R.id.go_spinner)
+    Button goSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +103,7 @@ public class MainActivity extends BaseActivity {
         startActivity(mIntent);
     }
 
-    @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list})
+    @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list, R.id.go_spinner})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -112,6 +116,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.go_list:
                 mIntent = new Intent(this, ListActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.go_spinner:
+                mIntent = new Intent(this, SpinnerActivity.class);
                 startActivity(mIntent);
                 break;
             default:
