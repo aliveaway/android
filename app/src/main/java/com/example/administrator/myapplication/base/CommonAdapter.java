@@ -5,39 +5,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.example.administrator.myapplication.R;
 
 import java.util.LinkedList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/20 0020.
  * 封装父类适配器
+ * 通用
  */
 
-public class ParentAdapter<T> extends BaseAdapter {
+public abstract class CommonAdapter<T> extends BaseAdapter {
 
-    private LinkedList<T> mData;
-    private Context mContext;
+    protected List<T> mData;
+    protected Context mContext;
+    protected LayoutInflater mInflater;
+    private int mLayoutId;
 
-    public ParentAdapter(LinkedList<T> mData, Context mContext) {
+    public CommonAdapter(Context context, List<T> mData, int layoutId) {
+        this.mContext = context;
+        this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
-        this.mContext = mContext;
+        this.mLayoutId = layoutId;
     }
 
     @Override
     public int getCount() {
-        return mData.size();
+        return mData != null ? mData.size() : 0;
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public T getItem(int position) {
+        return mData.get(position);
     }
 
     @Override
@@ -107,29 +106,13 @@ public class ParentAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_list_animal, parent, false);
-            viewHolder = new ViewHolder(convertView);
-            convertView.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
-        }
 
-
-        return convertView;
+        //初始化ViewHolder
+        ViewHolder viewHolder = ViewHolder.get(parent.getContext(), parent, convertView,
+                mLayoutId, position);
+        bindView(viewHolder, getItem(position));
+        return viewHolder.getItemView();
     }
 
-    static class ViewHolder {
-        @BindView(R.id.img_icon)
-        ImageView img_icon;
-        @BindView(R.id.txt_aName)
-        TextView txt_aName;
-        @BindView(R.id.txt_aSpeak)
-        TextView txt_aSpeak;
-
-        public ViewHolder(View view) {
-            ButterKnife.bind(this, view);
-        }
-    }
+    public abstract void bindView(ViewHolder viewHolder, T obj);
 }
