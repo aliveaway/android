@@ -62,6 +62,7 @@ public class TestServiceActivity extends BaseActivity {
         mIntent.setPackage(this.getPackageName());
         mIntent.setAction("com.example.administrator.myapplication.service.TestService");
 
+        //必须设置，否则报错
         mIntent2.setPackage(this.getPackageName());
         mIntent2.setAction("com.example.administrator.myapplication.service.TestService2");
     }
