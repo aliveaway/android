@@ -30,7 +30,8 @@
         <activity android:name=".component.ProgressBarActivity" />
         <activity android:name=".component.DateTimeDemoActivity" />
         <activity android:name=".component.listview.ListActivity" />
-        <activity android:name=".spinner.SpinnerActivity"></activity>
+        <activity android:name=".spinner.SpinnerActivity" />
+        <activity android:name=".dialog.AlertDialogActivity"></activity>
     </application>
 
 </manifest>
