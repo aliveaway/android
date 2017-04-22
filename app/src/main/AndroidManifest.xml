@@ -42,7 +42,16 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".service.TestServiceActivity"></activity>
+        <activity android:name=".service.TestServiceActivity" />
+
+        <service
+            android:name=".service.TestService2"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.administrator.myapplication.service.TestService2" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
