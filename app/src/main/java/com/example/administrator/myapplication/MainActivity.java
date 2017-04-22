@@ -17,6 +17,7 @@ import com.example.administrator.myapplication.component.ShowImageViewActivity;
 import com.example.administrator.myapplication.component.TextViewLinkActivity;
 import com.example.administrator.myapplication.component.listview.ListActivity;
 import com.example.administrator.myapplication.dialog.AlertDialogActivity;
+import com.example.administrator.myapplication.service.TestServiceActivity;
 import com.example.administrator.myapplication.spinner.SpinnerActivity;
 import com.example.administrator.myapplication.view.EditTextWithDel;
 
@@ -54,6 +55,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.go_alert_dialog)
     Button goAlertDialog;
+
+    @BindView(R.id.go_service)
+    Button goService;
 
 
     @Override
@@ -147,7 +151,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list, R.id.go_spinner
-            , R.id.go_alert_dialog})
+            , R.id.go_alert_dialog, R.id.go_service})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -169,6 +173,11 @@ public class MainActivity extends BaseActivity {
             case R.id.go_alert_dialog:
                 mIntent = null;
                 mIntent = new Intent(this, AlertDialogActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.go_service:
+                mIntent = null;
+                mIntent = new Intent(this, TestServiceActivity.class);
                 startActivity(mIntent);
                 break;
             default:

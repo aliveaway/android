@@ -134,4 +134,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/button"
         android:layout_marginBottom="0dp" />
 
+    <Button
+        android:id="@+id/go_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:text="服务"
+        app:layout_constraintBottom_toBottomOf="@+id/qq"
+        app:layout_constraintLeft_toLeftOf="@+id/go_alert_dialog"
+        app:layout_constraintRight_toRightOf="@+id/go_alert_dialog"
+        app:layout_constraintTop_toTopOf="@+id/qq" />
+
 </android.support.constraint.ConstraintLayout>

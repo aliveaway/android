@@ -31,7 +31,18 @@
         <activity android:name=".component.DateTimeDemoActivity" />
         <activity android:name=".component.listview.ListActivity" />
         <activity android:name=".spinner.SpinnerActivity" />
-        <activity android:name=".dialog.AlertDialogActivity"></activity>
+        <activity android:name=".dialog.AlertDialogActivity" />
+
+        <service
+            android:name=".service.TestService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.administrator.myapplication.service.TestService" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".service.TestServiceActivity"></activity>
     </application>
 
 </manifest>
