@@ -67,9 +67,20 @@ public class AlertDialogActivity extends BaseActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart调用");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume调用");
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
-        //AlertDialog显示的时候此方法不会调用
         Log.i(TAG, "onPause调用");
     }
 
@@ -77,6 +88,12 @@ public class AlertDialogActivity extends BaseActivity {
     protected void onStop() {
         super.onStop();
         Log.i(TAG, "onStop调用");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "onRestart调用");
     }
 
     @Override
