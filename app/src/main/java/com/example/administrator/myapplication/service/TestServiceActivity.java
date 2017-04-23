@@ -33,6 +33,9 @@ public class TestServiceActivity extends BaseActivity {
     @BindView(R.id.status_service)
     Button status;
 
+    @BindView(R.id.intent_service)
+    Button intent_service;
+
     final Intent mIntent = new Intent();
     final Intent mIntent2 = new Intent();
 
@@ -74,7 +77,7 @@ public class TestServiceActivity extends BaseActivity {
     }
 
     @OnClick({R.id.startService, R.id.stopService, R.id.lock_service, R.id.unlock,
-            R.id.status_service})
+            R.id.status_service, R.id.intent_service})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.startService:
@@ -95,8 +98,38 @@ public class TestServiceActivity extends BaseActivity {
                 Toast.makeText(getApplicationContext(), "Service的count的值为:"
                         + binder.getCount(), Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.intent_service:
+                builderIntentService();
+                break;
             default:
                 break;
         }
     }
+
+    private void builderIntentService() {
+        Intent it1 = new Intent("com.example.administrator.myapplication.service.TestService3");
+        it1.setPackage(this.getPackageName());
+        Bundle b1 = new Bundle();
+        b1.putString("param", "s1");
+        it1.putExtras(b1);
+
+        Intent it2 = new Intent("com.example.administrator.myapplication.service.TestService3");
+        it2.setPackage(this.getPackageName());
+        Bundle b2 = new Bundle();
+        b2.putString("param", "s2");
+        it2.putExtras(b2);
+
+        Intent it3 = new Intent("com.example.administrator.myapplication.service.TestService3");
+        it3.setPackage(this.getPackageName());
+        Bundle b3 = new Bundle();
+        b3.putString("param", "s3");
+        it3.putExtras(b3);
+
+        //接着启动多次IntentService,每次启动,都会新建一个工作线程
+        //但始终只有一个IntentService实例
+        startService(it1);
+        startService(it2);
+        startService(it3);
+    }
+
 }

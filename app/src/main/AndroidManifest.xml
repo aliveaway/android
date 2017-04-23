@@ -52,6 +52,13 @@
                 <action android:name="com.example.administrator.myapplication.service.TestService2" />
             </intent-filter>
         </service>
+        <service
+            android:name=".service.TestService3"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.administrator.myapplication.service.TestService3" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
