@@ -67,6 +67,19 @@
                 <action android:name="com.example.administrator.myapplication.service.NotificationService" />
             </intent-filter>
         </service>
+        <service
+            android:name=".service.LongRunningService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.administrator.myapplication.service.LongRunningService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".service.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false"></receiver>
     </application>
 
 </manifest>
