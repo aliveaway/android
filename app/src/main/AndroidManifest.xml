@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.myapplication">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -80,16 +82,29 @@
             android:name=".service.AlarmReceiver"
             android:enabled="true"
             android:exported="false" />
-        <!--<receiver
+        <!--
+        <receiver
             android:name=".broadcast.MyBRReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
 
             </intent-filter>
-        </receiver>-->
+        </receiver>
+        -->
 
-        <activity android:name=".broadcast.NetStateActivity"></activity>
+        <activity android:name=".broadcast.NetStateActivity" />
+        <activity android:name=".broadcast.singlelogin.LoginSingleActivity" />
+        <activity android:name=".broadcast.singlelogin.LoginSucActivity" />
+
+        <!--<receiver
+            android:name=".broadcast.singlelogin.LogoutReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.administrator.myapplication.broadcast.singlelogin.LogoutReceiver" />
+            </intent-filter>
+        </receiver>-->
     </application>
 
 </manifest>

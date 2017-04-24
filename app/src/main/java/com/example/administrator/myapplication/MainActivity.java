@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.administrator.myapplication.base.BaseActivity;
 import com.example.administrator.myapplication.broadcast.NetStateActivity;
+import com.example.administrator.myapplication.broadcast.singlelogin.LoginSingleActivity;
 import com.example.administrator.myapplication.component.DateTimeDemoActivity;
 import com.example.administrator.myapplication.component.ProgressBarActivity;
 import com.example.administrator.myapplication.component.QqConmentActivity;
@@ -62,6 +63,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.go_net_change)
     Button goBroadcast;
+
+    @BindView(R.id.go_sin_login)
+    Button goSingleLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,7 +158,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list, R.id.go_spinner
-            , R.id.go_alert_dialog, R.id.go_service, R.id.go_net_change})
+            , R.id.go_alert_dialog, R.id.go_service, R.id.go_net_change, R.id.go_sin_login})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -187,6 +191,11 @@ public class MainActivity extends BaseActivity {
             case R.id.go_net_change:
                 mIntent = null;
                 mIntent = new Intent(this, NetStateActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.go_sin_login:
+                mIntent = null;
+                mIntent = new Intent(this, LoginSingleActivity.class);
                 startActivity(mIntent);
                 break;
             default:
