@@ -42,4 +42,10 @@ public class LoginSucActivity extends BaseActivity {
         Intent i = new Intent("com.example.administrator.myapplication.broadcast.singlelogin.LogoutReceiver");
         localBroadcastManager.sendBroadcast(i);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        localBroadcastManager.unregisterReceiver(logoutReceiver);
+    }
 }
