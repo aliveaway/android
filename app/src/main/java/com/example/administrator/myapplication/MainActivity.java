@@ -59,7 +59,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.go_service)
     Button goService;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,6 +179,7 @@ public class MainActivity extends BaseActivity {
                 mIntent = new Intent(this, TestServiceActivity.class);
                 startActivity(mIntent);
                 break;
+
             default:
                 break;
         }

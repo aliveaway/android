@@ -59,6 +59,14 @@
                 <action android:name="com.example.administrator.myapplication.service.TestService3" />
             </intent-filter>
         </service>
+        <service
+            android:name=".service.NotificationService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.administrator.myapplication.service.NotificationService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

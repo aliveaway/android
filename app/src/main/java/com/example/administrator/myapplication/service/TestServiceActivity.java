@@ -36,8 +36,14 @@ public class TestServiceActivity extends BaseActivity {
     @BindView(R.id.intent_service)
     Button intent_service;
 
+    @BindView(R.id.go_notice_service)
+    Button goNotification;
+
+
     final Intent mIntent = new Intent();
     final Intent mIntent2 = new Intent();
+    //前台服务Service，启动一个通知栏
+    final Intent mIntentNotification = new Intent();
 
     //保持所启动的service的IBinder对象
     TestService2.MyBinder binder;
@@ -68,6 +74,9 @@ public class TestServiceActivity extends BaseActivity {
         //必须设置，否则报错
         mIntent2.setPackage(this.getPackageName());
         mIntent2.setAction("com.example.administrator.myapplication.service.TestService2");
+
+        mIntentNotification.setPackage(this.getPackageName());
+        mIntentNotification.setAction("com.example.administrator.myapplication.service.NotificationService");
     }
 
     @Override
@@ -77,7 +86,7 @@ public class TestServiceActivity extends BaseActivity {
     }
 
     @OnClick({R.id.startService, R.id.stopService, R.id.lock_service, R.id.unlock,
-            R.id.status_service, R.id.intent_service})
+            R.id.status_service, R.id.intent_service, R.id.go_notice_service})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.startService:
@@ -100,6 +109,9 @@ public class TestServiceActivity extends BaseActivity {
                 break;
             case R.id.intent_service:
                 builderIntentService();
+                break;
+            case R.id.go_notice_service:
+                startService(mIntentNotification);
                 break;
             default:
                 break;
