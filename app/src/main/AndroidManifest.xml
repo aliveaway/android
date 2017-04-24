@@ -79,7 +79,17 @@
         <receiver
             android:name=".service.AlarmReceiver"
             android:enabled="true"
-            android:exported="false"></receiver>
+            android:exported="false" />
+        <!--<receiver
+            android:name=".broadcast.MyBRReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+
+            </intent-filter>
+        </receiver>-->
+
+        <activity android:name=".broadcast.NetStateActivity"></activity>
     </application>
 
 </manifest>

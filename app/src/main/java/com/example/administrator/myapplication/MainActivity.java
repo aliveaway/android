@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.administrator.myapplication.base.BaseActivity;
+import com.example.administrator.myapplication.broadcast.NetStateActivity;
 import com.example.administrator.myapplication.component.DateTimeDemoActivity;
 import com.example.administrator.myapplication.component.ProgressBarActivity;
 import com.example.administrator.myapplication.component.QqConmentActivity;
@@ -58,6 +59,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.go_service)
     Button goService;
+
+    @BindView(R.id.go_net_change)
+    Button goBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +154,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list, R.id.go_spinner
-            , R.id.go_alert_dialog, R.id.go_service})
+            , R.id.go_alert_dialog, R.id.go_service, R.id.go_net_change})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -180,6 +184,11 @@ public class MainActivity extends BaseActivity {
                 startActivity(mIntent);
                 break;
 
+            case R.id.go_net_change:
+                mIntent = null;
+                mIntent = new Intent(this, NetStateActivity.class);
+                startActivity(mIntent);
+                break;
             default:
                 break;
         }
