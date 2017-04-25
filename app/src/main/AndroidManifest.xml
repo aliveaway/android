@@ -3,6 +3,8 @@
     package="com.example.administrator.myapplication">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -97,14 +99,17 @@
         <activity android:name=".broadcast.singlelogin.LoginSingleActivity" />
         <activity android:name=".broadcast.singlelogin.LoginSucActivity" />
 
-        <!--<receiver
+        <!--
+        <receiver
             android:name=".broadcast.singlelogin.LogoutReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.example.administrator.myapplication.broadcast.singlelogin.LogoutReceiver" />
             </intent-filter>
-        </receiver>-->
+        </receiver>
+        -->
+        <activity android:name=".contentprovider.ContentProvideActivity"></activity>
     </application>
 
 </manifest>

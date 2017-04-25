@@ -174,5 +174,19 @@
         app:layout_constraintLeft_toLeftOf="@+id/edit_del"
         app:layout_constraintTop_toBottomOf="@+id/edit_del" />
 
+    <Button
+        android:id="@+id/go_con_provider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:text="内容提供者"
+        app:layout_constraintBottom_toBottomOf="@+id/go_sin_login"
+        app:layout_constraintLeft_toLeftOf="@+id/nav"
+        app:layout_constraintRight_toRightOf="@+id/nav"
+        app:layout_constraintTop_toBottomOf="@+id/edit_del" />
+
 
 </android.support.constraint.ConstraintLayout>
