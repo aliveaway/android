@@ -1,15 +1,21 @@
 package com.example.administrator.myapplication.contentprovider;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -24,11 +30,17 @@ public class ContentProvideActivity extends BaseActivity {
 
     private static final int READ_SMS = 1001;
     private static final int READ_CONTACTS = 1002;
+    private static final int READ_FILE_CODE = 1003;
+    private static final String TAG = "ContentProvideActivity";
     @BindView(R.id.read_email)
     Button readEmail;
 
     @BindView(R.id.contacts)
     Button readContacts;
+
+    //打开文件
+    @BindView(R.id.open_file)
+    Button openFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +53,7 @@ public class ContentProvideActivity extends BaseActivity {
         setContentView(R.layout.activity_content_provide);
     }
 
-    @OnClick({R.id.read_email, R.id.contacts})
+    @OnClick({R.id.read_email, R.id.contacts, R.id.open_file})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.read_email:
@@ -54,9 +66,22 @@ public class ContentProvideActivity extends BaseActivity {
                 checkReadContacts();
 //                getMsg();
                 break;
+            case R.id.open_file:
+                openFile();
+                break;
             default:
                 break;
         }
+    }
+
+    /**
+     * 打开系统文件视图
+     */
+    private void openFile() {
+        Intent i = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        i.addCategory(Intent.CATEGORY_OPENABLE);
+        i.setType("image/*");
+        startActivityForResult(i, READ_FILE_CODE);
     }
 
     private void checkReadContacts() {
@@ -112,6 +137,49 @@ public class ContentProvideActivity extends BaseActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         doNext(requestCode, grantResults);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == READ_FILE_CODE && resultCode == Activity.RESULT_OK) {
+            Uri uri;
+            if (data != null) {
+                uri = data.getData();
+                Log.e(TAG, uri.toString());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    dumpImageMetaData(uri);
+                }
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * 根据Uri获取文件参数
+     * 文件名和文件大小
+     * * @param uri
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void dumpImageMetaData(Uri uri) {
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null, null);
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                String displayName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                Log.e(TAG, "Display Name: " + displayName);
+                int sizeIndex = cursor.getColumnIndex(OpenableColumns.SIZE);
+                String size = null;
+                if (!cursor.isNull(sizeIndex)) {
+                    size = cursor.getString(sizeIndex);
+                } else {
+                    size = "Unknown";
+                }
+                Log.e(TAG, "Size: " + size);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
     }
 
     /**
