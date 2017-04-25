@@ -6,6 +6,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,10 +19,14 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.administrator.myapplication.R;
 import com.example.administrator.myapplication.base.BaseActivity;
+import com.example.administrator.myapplication.utils.ContentProvideUtil;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -42,6 +47,12 @@ public class ContentProvideActivity extends BaseActivity {
     @BindView(R.id.open_file)
     Button openFile;
 
+    @BindView(R.id.imageView3)
+    ImageView img;
+
+    @BindView(R.id.creat_file)
+    Button createFile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +64,7 @@ public class ContentProvideActivity extends BaseActivity {
         setContentView(R.layout.activity_content_provide);
     }
 
-    @OnClick({R.id.read_email, R.id.contacts, R.id.open_file})
+    @OnClick({R.id.read_email, R.id.contacts, R.id.open_file, R.id.creat_file})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.read_email:
@@ -68,6 +79,9 @@ public class ContentProvideActivity extends BaseActivity {
                 break;
             case R.id.open_file:
                 openFile();
+                break;
+            case R.id.creat_file:
+                ContentProvideUtil.createFile("image/*", "1.jgp", this);
                 break;
             default:
                 break;
@@ -141,17 +155,32 @@ public class ContentProvideActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == READ_FILE_CODE && resultCode == Activity.RESULT_OK) {
-            Uri uri;
-            if (data != null) {
-                uri = data.getData();
-                Log.e(TAG, uri.toString());
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    dumpImageMetaData(uri);
-                }
+
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case READ_FILE_CODE:
+                    Uri uri;
+                    if (data != null) {
+                        uri = data.getData();
+                        Log.e(TAG, uri.toString());
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            dumpImageMetaData(uri);
+                            try {
+                                Bitmap bitmap = ContentProvideUtil.getBitmapFromUri(uri, this);
+                                img.setImageBitmap(bitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    break;
+                case ContentProvideUtil.WRITE_REQUEST_CODE:
+                    Uri u = data.getData();
+                    Log.e(TAG, u.toString());
+                    break;
             }
         }
-        super.onActivityResult(requestCode, resultCode, data);
+//        super.onActivityResult(requestCode, resultCode, data);
     }
 
     /**
@@ -160,7 +189,7 @@ public class ContentProvideActivity extends BaseActivity {
      * * @param uri
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void dumpImageMetaData(Uri uri) {
+    private void dumpImageMetaData(Uri uri) {
         Cursor cursor = getContentResolver().query(uri, null, null, null, null, null);
         try {
             if (cursor != null && cursor.moveToFirst()) {
