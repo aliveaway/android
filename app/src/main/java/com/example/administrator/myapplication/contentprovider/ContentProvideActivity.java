@@ -173,7 +173,7 @@ public class ContentProvideActivity extends BaseActivity {
                 } else {
                     size = "Unknown";
                 }
-                Log.e(TAG, "Size: " + size);
+                Log.e(TAG, "Size: " + size + "byte");
             }
         } finally {
             if (cursor != null) {
