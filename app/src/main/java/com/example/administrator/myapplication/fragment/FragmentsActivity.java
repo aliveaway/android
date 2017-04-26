@@ -15,6 +15,7 @@ import butterknife.OnClick;
 
 /**
  * 制作一个首页导航
+ * LinearLayout+TextView实现方式
  */
 public class FragmentsActivity extends BaseActivity {
 
