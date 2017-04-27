@@ -46,7 +46,7 @@ public class FileHelper {
         FileInputStream input = context.openFileInput(fileName);
         byte[] temp = new byte[2048];
         int lenth = 0;
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder("");//OutIndexException
         while ((lenth = input.read(temp)) > 0) {
             stringBuilder.append(new String(temp, 0, lenth));
         }
