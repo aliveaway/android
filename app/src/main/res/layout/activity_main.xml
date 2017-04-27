@@ -214,5 +214,19 @@
         app:layout_constraintRight_toRightOf="@+id/go_sin_login"
         app:layout_constraintTop_toBottomOf="@+id/go_sin_login" />
 
+    <Button
+        android:id="@+id/go_storage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:text="文件存贮"
+        app:layout_constraintBottom_toBottomOf="@+id/new_list"
+        app:layout_constraintLeft_toLeftOf="@+id/go_con_provider"
+        app:layout_constraintRight_toRightOf="@+id/go_con_provider"
+        app:layout_constraintTop_toTopOf="@+id/new_list" />
+
 
 </android.support.constraint.ConstraintLayout>

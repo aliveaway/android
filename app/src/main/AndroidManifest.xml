@@ -116,6 +116,7 @@
         <activity
             android:name=".fragment.newslist.NewListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".storage.StorageActivity"></activity>
     </application>
 
 </manifest>
