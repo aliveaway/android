@@ -24,7 +24,7 @@
             android:name=".component.TextViewLinkActivity"
             android:label="@string/title_activity_text_view_link"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--<activity android:name=".base.BaseActivity" />-->
+        <!-- <activity android:name=".base.BaseActivity" /> -->
         <activity android:name=".component.QqConmentActivity" />
         <activity
             android:name=".Main2Activity"
@@ -112,6 +112,9 @@
         <activity android:name=".contentprovider.ContentProvideActivity" />
         <activity
             android:name=".fragment.FragmentsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".fragment.newslist.NewListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
