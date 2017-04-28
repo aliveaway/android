@@ -118,7 +118,8 @@
             android:name=".fragment.newslist.NewListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".storage.StorageActivity" />
-        <activity android:name=".webview.WebviewActivity"></activity>
+        <activity android:name=".webview.WebviewActivity" />
+        <activity android:name=".webview.WebviewDialogActivity"></activity>
     </application>
 
 </manifest>
