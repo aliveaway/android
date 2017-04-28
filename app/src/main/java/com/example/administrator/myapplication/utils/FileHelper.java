@@ -44,10 +44,10 @@ public class FileHelper {
      */
     public String read(String fileName) throws IOException {
         FileInputStream input = context.openFileInput(fileName);
-        byte[] temp = new byte[2048];
+        byte[] temp = new byte[1024];
         int lenth = 0;
-        StringBuilder stringBuilder = new StringBuilder("");//OutIndexException
-        while ((lenth = input.read(temp)) > 0) {
+        StringBuilder stringBuilder = new StringBuilder();
+        while ((lenth = input.read(temp)) > 0) {    //OutOfIndexException !=0
             stringBuilder.append(new String(temp, 0, lenth));
         }
         input.close();
