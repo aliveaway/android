@@ -27,6 +27,7 @@ import com.example.administrator.myapplication.spinner.SpinnerActivity;
 import com.example.administrator.myapplication.storage.StorageActivity;
 import com.example.administrator.myapplication.view.EditTextWithDel;
 import com.example.administrator.myapplication.webview.WebviewActivity;
+import com.example.administrator.myapplication.webview.WebviewContactActivity;
 import com.example.administrator.myapplication.webview.WebviewDialogActivity;
 
 import butterknife.BindView;
@@ -88,6 +89,8 @@ public class MainActivity extends BaseActivity {
     Button web_view;
     @BindView(R.id.web_dialog)
     Button web_dialog;
+    @BindView(R.id.web_contract)
+    Button web_contract;
 
 
     @Override
@@ -183,7 +186,7 @@ public class MainActivity extends BaseActivity {
     @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list, R.id.go_spinner
             , R.id.go_alert_dialog, R.id.go_service, R.id.go_net_change, R.id.go_sin_login,
             R.id.go_con_provider, R.id.go_home_demo1, R.id.new_list, R.id.go_storage
-            , R.id.web_view, R.id.web_dialog})
+            , R.id.web_view, R.id.web_dialog, R.id.web_contract})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -252,6 +255,11 @@ public class MainActivity extends BaseActivity {
             case R.id.web_dialog:
                 mIntent = null;
                 mIntent = new Intent(this, WebviewDialogActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.web_contract:
+                mIntent = null;
+                mIntent = new Intent(this, WebviewContactActivity.class);
                 startActivity(mIntent);
                 break;
             default:
