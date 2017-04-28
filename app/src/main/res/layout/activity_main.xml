@@ -228,5 +228,19 @@
         app:layout_constraintRight_toRightOf="@+id/go_con_provider"
         app:layout_constraintTop_toTopOf="@+id/new_list" />
 
+    <Button
+        android:id="@+id/web_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:text="网页视图"
+        app:layout_constraintBottom_toBottomOf="@+id/go_storage"
+        app:layout_constraintLeft_toLeftOf="@+id/go_alert_dialog"
+        app:layout_constraintRight_toRightOf="@+id/go_alert_dialog"
+        app:layout_constraintTop_toTopOf="@+id/go_storage" />
+
 
 </android.support.constraint.ConstraintLayout>

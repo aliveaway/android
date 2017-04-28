@@ -26,6 +26,7 @@ import com.example.administrator.myapplication.service.TestServiceActivity;
 import com.example.administrator.myapplication.spinner.SpinnerActivity;
 import com.example.administrator.myapplication.storage.StorageActivity;
 import com.example.administrator.myapplication.view.EditTextWithDel;
+import com.example.administrator.myapplication.webview.WebviewActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -82,6 +83,8 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.go_storage)
     Button goStorage;
+    @BindView(R.id.web_view)
+    Button web_view;
 
 
     @Override
@@ -176,7 +179,8 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.progressbar, R.id.date_time, R.id.go_list, R.id.go_spinner
             , R.id.go_alert_dialog, R.id.go_service, R.id.go_net_change, R.id.go_sin_login,
-            R.id.go_con_provider, R.id.go_home_demo1, R.id.new_list, R.id.go_storage})
+            R.id.go_con_provider, R.id.go_home_demo1, R.id.new_list, R.id.go_storage
+            , R.id.web_view})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -235,6 +239,11 @@ public class MainActivity extends BaseActivity {
                 //文件存贮
                 mIntent = null;
                 mIntent = new Intent(this, StorageActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.web_view:
+                mIntent = null;
+                mIntent = new Intent(this, WebviewActivity.class);
                 startActivity(mIntent);
                 break;
             default:
