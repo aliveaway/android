@@ -43,7 +43,9 @@ public class WebviewContactActivity extends BaseActivity {
         //①设置WebView允许调用js
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDefaultTextEncodingName("UTF-8");
-
+        webSettings.setSaveFormData(false);
+        webSettings.setSavePassword(false);
+        webSettings.setSupportZoom(false);
         web_contract.addJavascriptInterface(new SharpJs(), "sharp");
         web_contract.loadUrl("file:///android_asset/demo3.html");
     }
@@ -62,8 +64,17 @@ public class WebviewContactActivity extends BaseActivity {
         public void contactlist() {
             try {
                 System.out.println("contactlist()方法执行了！");
-                String json = buildJson(getContacts());
-                web_contract.loadUrl("javascript:show('" + json + "')");
+                final String json = buildJson(getContacts());
+                //使用如下的方法报错
+                //java.lang.RuntimeException: java.lang.Throwable: A WebView method was called on thread 'JavaBridge'.
+                // All WebView methods must be called on the same thread
+//                web_contract.loadUrl("javascript:show('" + json + "')");
+                web_contract.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        web_contract.loadUrl("javascript:show('" + json + "')");
+                    }
+                });
             } catch (Exception e) {
                 System.out.println("设置数据失败" + e);
             }
