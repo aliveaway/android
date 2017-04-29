@@ -136,21 +136,6 @@ public class WebviewContactActivity extends BaseActivity {
         public void call(String phone) {
             System.out.println("call()方法执行了！");
             phoneNum = phone;
-            //Intent it = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
-           /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                int callPhonePermission = ContextCompat.checkSelfPermission(WebviewContactActivity.this
-                        , Manifest.permission.CALL_PHONE);
-                if (callPhonePermission != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(WebviewContactActivity.this,
-                            new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL_PHONE);
-                    return;
-                } else {
-                    startActivity(it);
-                }
-            } else {
-                startActivity(it);
-            }*/
-
             checkPermission();
 
         }
