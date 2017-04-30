@@ -15,7 +15,7 @@
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mennv" />
+            android:src="@drawable/meinv" />
         <!-- 限制了最大宽度与高度,并且设置了调整边界来保持所显示图像的长宽比-->
         <ImageView
             android:id="@+id/imageView2"
@@ -25,7 +25,7 @@
             android:adjustViewBounds="true"
             android:maxHeight="200dp"
             android:maxWidth="200dp"
-            android:src="@drawable/mennv" />
+            android:src="@drawable/meinv" />
 
         <LinearLayout
             android:id="@+id/LinearLayout1"

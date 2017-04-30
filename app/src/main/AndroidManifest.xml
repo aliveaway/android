@@ -121,7 +121,8 @@
         <activity android:name=".storage.StorageActivity" />
         <activity android:name=".webview.WebviewActivity" />
         <activity android:name=".webview.WebviewDialogActivity" />
-        <activity android:name=".webview.WebviewContactActivity"></activity>
+        <activity android:name=".webview.WebviewContactActivity" />
+        <activity android:name=".drawable.BtimapActivity"></activity>
     </application>
 
 </manifest>
