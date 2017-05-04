@@ -122,7 +122,8 @@
         <activity android:name=".webview.WebviewActivity" />
         <activity android:name=".webview.WebviewDialogActivity" />
         <activity android:name=".webview.WebviewContactActivity" />
-        <activity android:name=".drawable.BtimapActivity"></activity>
+        <activity android:name=".drawable.BtimapActivity" />
+        <activity android:name=".drawable.CustomViewAcitity"></activity>
     </application>
 
 </manifest>

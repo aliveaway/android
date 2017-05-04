@@ -282,5 +282,17 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="@+id/web_view" />
 
+    <Button
+        android:id="@+id/show_draw_vew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:text="自定义绘画"
+        app:layout_constraintLeft_toLeftOf="@+id/web_dialog"
+        app:layout_constraintRight_toRightOf="@+id/web_dialog"
+        app:layout_constraintTop_toBottomOf="@+id/web_dialog" />
+
 
 </android.support.constraint.ConstraintLayout>
