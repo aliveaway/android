@@ -82,6 +82,13 @@ public class MyView extends View {
         //绘制多边形
         drawMore(canvas, mPaint);
 
+        //绘制文字
+        drawText(canvas, mPaint);
+
+    }
+
+    private void drawText(Canvas canvas, Paint mPaint) {
+        canvas.drawText("测试文字", 800, 50, mPaint);
     }
 
     private void drawMore(Canvas canvas, Paint mPaint) {
