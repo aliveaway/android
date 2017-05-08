@@ -3,6 +3,7 @@ package com.example.administrator.myapplication.drawable;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
@@ -20,6 +21,7 @@ import com.example.administrator.myapplication.utils.BitmapUtil;
 
 public class MyView extends View {
 
+    private static final String TAG = "MyView";
     private Paint mPaint;
     private RectF arcRectF;
     private Bitmap bitmap;
@@ -27,6 +29,10 @@ public class MyView extends View {
     private RectF radioRect;//圆角矩形
 
     private Path mPath;//路径
+
+    private RectF clockRectF;
+    private Paint cityPaint;
+    private Path clockPath;
 
     public MyView(Context context) {
         super(context);
@@ -60,6 +66,10 @@ public class MyView extends View {
         radioRect = new RectF(400, 10, 600, 80);
 
         bitmap = BitmapUtil.decodeSampledBitmapFromResource(getResources(), R.mipmap.meinv, 100, 100);
+
+        clockRectF = new RectF(0, 0, 150, 150);//用来画钟表
+        cityPaint = new Paint();
+        clockPath = new Path();
     }
 
     @Override
@@ -85,6 +95,56 @@ public class MyView extends View {
         //绘制文字
         drawText(canvas, mPaint);
 
+        //绘制自定义图形
+        drawCoustomView(canvas, mPaint);
+
+    }
+
+    /**
+     * 绘制钟表
+     *
+     * @param canvas
+     * @param mPaint
+     */
+    private void drawCoustomView(Canvas canvas, Paint mPaint) {
+        canvas.translate(canvas.getWidth() / 2, canvas.getHeight() / 2);//将位置移动画纸的坐标点
+//        Log.i(TAG, String.valueOf(canvas.getWidth()));
+        canvas.drawCircle(0, 0, 100, mPaint);//画圆
+
+        canvas.save();
+        canvas.translate(-75, -75);
+        clockPath.addArc(clockRectF, -180, 180);
+        cityPaint.setTextSize(14);
+        cityPaint.setStrokeWidth(1);
+
+        canvas.drawTextOnPath("绘制表盘", clockPath, 28, 0, cityPaint);
+        canvas.restore();
+
+        Paint tmpPaint = new Paint(mPaint); //小刻度画笔对象
+        tmpPaint.setStrokeWidth(1);
+
+        float y = 100;
+        int count = 60; //总刻度数
+
+        for (int i = 0; i < count; i++) {
+            if (i % 5 == 0) {
+                canvas.drawLine(0f, y, 0, y + 12f, mPaint);
+                canvas.drawText(String.valueOf(i / 5 + 1), -4f, y + 25f, tmpPaint);
+
+            } else {
+                canvas.drawLine(0f, y, 0f, y + 5f, tmpPaint);
+            }
+            canvas.rotate(360 / count, 0f, 0f); //旋转画纸
+        }
+
+        //绘制指针
+        tmpPaint.setColor(Color.GRAY);
+        tmpPaint.setStrokeWidth(4);
+        canvas.drawCircle(0, 0, 7, tmpPaint);
+        tmpPaint.setStyle(Paint.Style.FILL);
+        tmpPaint.setColor(Color.YELLOW);
+        canvas.drawCircle(0, 0, 5, tmpPaint);
+        canvas.drawLine(0, 10, 0, -65, mPaint);
     }
 
     private void drawText(Canvas canvas, Paint mPaint) {
