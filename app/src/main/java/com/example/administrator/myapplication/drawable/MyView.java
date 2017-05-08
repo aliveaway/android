@@ -126,6 +126,12 @@ public class MyView extends View {
         float y = 100;
         int count = 60; //总刻度数
 
+        /**
+         * 画表盘的思路
+         * 明确一共60分钟，共画60个线段
+         * 满5个就画一个长线段，没有满画短线
+         * 画完旋转
+         */
         for (int i = 0; i < count; i++) {
             if (i % 5 == 0) {
                 canvas.drawLine(0f, y, 0, y + 12f, mPaint);
