@@ -1,298 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.administrator.myapplication.MainActivity">
 
-    <TextView
-        android:id="@+id/tx_click"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="textview效果!" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        android:text="图片链接"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tx_click" />
+        <TextView
+            android:id="@+id/tx_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textview效果!" />
 
-    <Button
-        android:id="@+id/qq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="4dp"
-        android:text="qq空间评论"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0dp"
+            android:text="图片链接" />
 
-    <Button
-        android:id="@+id/nav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="导航"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qq" />
+        <Button
+            android:id="@+id/qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="4dp"
+            android:text="qq空间评论" />
 
-    <com.example.administrator.myapplication.view.EditTextWithDel
-        android:id="@+id/edit_del"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="@string/app_name"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav" />
+        <Button
+            android:id="@+id/nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="导航" />
 
-    <!--图像视图-->
-    <Button
-        android:id="@+id/imgView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:text="ImageView"
-        app:layout_constraintTop_toBottomOf="@+id/nav"
-        app:layout_constraintLeft_toRightOf="@+id/edit_del"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintRight_toLeftOf="@+id/progressbar" />
+        <com.example.administrator.myapplication.view.EditTextWithDel
+            android:id="@+id/edit_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/app_name" />
 
-    <Button
-        android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="进度条"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgView"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/nav" />
+        <!--图像视图-->
+        <Button
+            android:id="@+id/imgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:text="ImageView" />
 
-    <Button
-        android:id="@+id/date_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        android:text="时间日期"
-        app:layout_constraintBottom_toTopOf="@+id/qq"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        <Button
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="进度条" />
 
-    <Button
-        android:id="@+id/go_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="列表"
-        app:layout_constraintTop_toBottomOf="@+id/date_time"
-        tools:layout_editor_absoluteX="34dp" />
+        <Button
+            android:id="@+id/date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0dp"
+            android:text="时间日期" />
 
-    <Button
-        android:id="@+id/go_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="下拉选择框"
-        app:layout_constraintLeft_toLeftOf="@+id/go_list"
-        app:layout_constraintRight_toRightOf="@+id/go_list"
-        app:layout_constraintTop_toBottomOf="@+id/go_list" />
+        <Button
+            android:id="@+id/go_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="列表" />
 
-    <Button
-        android:id="@+id/go_alert_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="对话框"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/button"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintTop_toTopOf="@+id/button"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        android:layout_marginBottom="0dp" />
+        <Button
+            android:id="@+id/go_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="下拉选择框" />
 
-    <Button
-        android:id="@+id/go_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="服务"
-        app:layout_constraintBottom_toBottomOf="@+id/qq"
-        app:layout_constraintLeft_toLeftOf="@+id/go_alert_dialog"
-        app:layout_constraintRight_toRightOf="@+id/go_alert_dialog"
-        app:layout_constraintTop_toTopOf="@+id/qq"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0" />
+        <Button
+            android:id="@+id/go_alert_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="对话框" />
 
-    <Button
-        android:id="@+id/go_net_change"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:text="广播"
-        app:layout_constraintBottom_toBottomOf="@+id/nav"
-        app:layout_constraintLeft_toLeftOf="@+id/go_service"
-        app:layout_constraintRight_toRightOf="@+id/go_service"
-        app:layout_constraintTop_toTopOf="@+id/nav" />
+        <Button
+            android:id="@+id/go_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="服务" />
 
-    <Button
-        android:id="@+id/go_sin_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="0dp"
-        android:text="单点登陆"
-        app:layout_constraintLeft_toLeftOf="@+id/edit_del"
-        app:layout_constraintTop_toBottomOf="@+id/edit_del" />
+        <Button
+            android:id="@+id/go_net_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:text="广播" />
 
-    <Button
-        android:id="@+id/go_con_provider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:text="内容提供者"
-        app:layout_constraintBottom_toBottomOf="@+id/go_sin_login"
-        app:layout_constraintLeft_toLeftOf="@+id/nav"
-        app:layout_constraintRight_toRightOf="@+id/nav"
-        app:layout_constraintTop_toBottomOf="@+id/edit_del" />
+        <Button
+            android:id="@+id/go_sin_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            android:text="单点登陆" />
 
-    <Button
-        android:id="@+id/go_home_demo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="首页"
-        app:layout_constraintBottom_toBottomOf="@+id/go_con_provider"
-        app:layout_constraintLeft_toLeftOf="@+id/progressbar"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/go_con_provider" />
+        <Button
+            android:id="@+id/go_con_provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:text="内容提供者" />
 
-    <Button
-        android:id="@+id/new_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:text="新闻列表"
-        app:layout_constraintLeft_toLeftOf="@+id/go_sin_login"
-        app:layout_constraintRight_toRightOf="@+id/go_sin_login"
-        app:layout_constraintTop_toBottomOf="@+id/go_sin_login" />
+        <Button
+            android:id="@+id/go_home_demo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="首页" />
 
-    <Button
-        android:id="@+id/go_storage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:text="文件存贮"
-        app:layout_constraintBottom_toBottomOf="@+id/new_list"
-        app:layout_constraintLeft_toLeftOf="@+id/go_con_provider"
-        app:layout_constraintRight_toRightOf="@+id/go_con_provider"
-        app:layout_constraintTop_toTopOf="@+id/new_list" />
+        <Button
+            android:id="@+id/new_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:text="新闻列表" />
 
-    <Button
-        android:id="@+id/web_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:text="网页视图"
-        app:layout_constraintBottom_toBottomOf="@+id/go_storage"
-        app:layout_constraintLeft_toLeftOf="@+id/go_alert_dialog"
-        app:layout_constraintRight_toRightOf="@+id/go_alert_dialog"
-        app:layout_constraintTop_toTopOf="@+id/go_storage" />
+        <Button
+            android:id="@+id/go_storage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:text="文件存贮" />
 
-    <Button
-        android:id="@+id/web_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="网页对话框"
-        app:layout_constraintLeft_toLeftOf="@+id/new_list"
-        app:layout_constraintRight_toRightOf="@+id/new_list"
-        app:layout_constraintTop_toBottomOf="@+id/new_list" />
+        <Button
+            android:id="@+id/web_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:text="网页视图" />
 
-    <Button
-        android:id="@+id/web_contract"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="网页联系人"
-        app:layout_constraintBottom_toBottomOf="@+id/web_dialog"
-        app:layout_constraintLeft_toLeftOf="@+id/go_storage"
-        app:layout_constraintRight_toRightOf="@+id/go_storage"
-        app:layout_constraintTop_toTopOf="@+id/web_dialog" />
+        <Button
+            android:id="@+id/web_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="网页对话框" />
 
-    <Button
-        android:id="@+id/go_bitmap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="位图"
-        app:layout_constraintTop_toTopOf="@+id/web_contract"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/web_contract"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/web_view"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="@+id/web_view" />
+        <Button
+            android:id="@+id/web_contract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="网页联系人" />
 
-    <Button
-        android:id="@+id/show_draw_vew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:text="自定义绘画"
-        app:layout_constraintLeft_toLeftOf="@+id/web_dialog"
-        app:layout_constraintRight_toRightOf="@+id/web_dialog"
-        app:layout_constraintTop_toBottomOf="@+id/web_dialog" />
+        <Button
+            android:id="@+id/go_bitmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="位图" />
+
+        <Button
+            android:id="@+id/show_draw_vew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="自定义绘画" />
+
+        <Button
+            android:id="@+id/show_draw_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="手绘板" />
+
+    </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>
