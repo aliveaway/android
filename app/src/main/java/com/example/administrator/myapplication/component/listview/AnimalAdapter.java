@@ -14,9 +14,6 @@ import java.util.LinkedList;
 
 public class AnimalAdapter extends CommonAdapter<Animal> {
 
-    private LinkedList<Animal> mData;
-    private Context mContext;
-
     public AnimalAdapter(LinkedList<Animal> mData, Context mContext) {
         super(mContext, mData, R.layout.item_list_animal);
     }
