@@ -125,7 +125,8 @@
         <activity android:name=".drawable.BtimapActivity" />
         <activity android:name=".drawable.CustomViewAcitity" />
         <activity android:name=".drawable.DrawingBoardActivity" />
-        <activity android:name=".drawable.EraserTakeOffHomeActivity"></activity>
+        <activity android:name=".drawable.EraserTakeOffHomeActivity" />
+        <activity android:name=".drawable.Paint1Activity"></activity>
     </application>
 
 </manifest>

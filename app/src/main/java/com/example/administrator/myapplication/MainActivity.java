@@ -24,6 +24,7 @@ import com.example.administrator.myapplication.drawable.BtimapActivity;
 import com.example.administrator.myapplication.drawable.CustomViewAcitity;
 import com.example.administrator.myapplication.drawable.DrawingBoardActivity;
 import com.example.administrator.myapplication.drawable.EraserTakeOffHomeActivity;
+import com.example.administrator.myapplication.drawable.Paint1Activity;
 import com.example.administrator.myapplication.fragment.FragmentsActivity;
 import com.example.administrator.myapplication.fragment.newslist.NewListActivity;
 import com.example.administrator.myapplication.service.TestServiceActivity;
@@ -103,6 +104,8 @@ public class MainActivity extends BaseActivity {
     Button show_draw_board;
     @BindView(R.id.go_gall_girl)
     Button go_gall_girl;
+    @BindView(R.id.go_circle_image)
+    Button go_circle_image;
 
 
     @Override
@@ -199,7 +202,7 @@ public class MainActivity extends BaseActivity {
             , R.id.go_alert_dialog, R.id.go_service, R.id.go_net_change, R.id.go_sin_login,
             R.id.go_con_provider, R.id.go_home_demo1, R.id.new_list, R.id.go_storage
             , R.id.web_view, R.id.web_dialog, R.id.web_contract, R.id.go_bitmap, R.id.show_draw_vew,
-            R.id.show_draw_board, R.id.go_gall_girl})
+            R.id.show_draw_board, R.id.go_gall_girl, R.id.go_circle_image})
     public void cusClick(View view) {
         switch (view.getId()) {
             case R.id.progressbar:
@@ -294,6 +297,11 @@ public class MainActivity extends BaseActivity {
             case R.id.go_gall_girl:
                 mIntent = null;
                 mIntent = new Intent(this, EraserTakeOffHomeActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.go_circle_image:
+                mIntent = null;
+                mIntent = new Intent(this, Paint1Activity.class);
                 startActivity(mIntent);
                 break;
             default:
