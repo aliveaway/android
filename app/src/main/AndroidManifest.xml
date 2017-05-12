@@ -127,7 +127,8 @@
         <activity android:name=".drawable.DrawingBoardActivity" />
         <activity android:name=".drawable.EraserTakeOffHomeActivity" />
         <activity android:name=".drawable.Paint1Activity" />
-        <activity android:name=".drawable.CaClothes"></activity>
+        <activity android:name=".drawable.CaClothes" />
+        <activity android:name=".drawable.StripGrilActivity"></activity>
     </application>
 
 </manifest>

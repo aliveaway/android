@@ -246,6 +246,16 @@
                 app:layout_constraintBottom_toBottomOf="@id/go_gall_girl"
                 app:layout_constraintLeft_toRightOf="@id/go_gall_girl"
                 app:layout_constraintTop_toTopOf="@id/go_gall_girl" />
+
+            <Button
+                android:id="@+id/go_strip_gril"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="脱衣服"
+                app:layout_constraintBottom_toBottomOf="@id/go_circle_image"
+                app:layout_constraintLeft_toRightOf="@id/go_circle_image"
+                app:layout_constraintTop_toTopOf="@id/go_circle_image" />
+
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
