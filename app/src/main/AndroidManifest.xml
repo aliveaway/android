@@ -126,7 +126,8 @@
         <activity android:name=".drawable.CustomViewAcitity" />
         <activity android:name=".drawable.DrawingBoardActivity" />
         <activity android:name=".drawable.EraserTakeOffHomeActivity" />
-        <activity android:name=".drawable.Paint1Activity"></activity>
+        <activity android:name=".drawable.Paint1Activity" />
+        <activity android:name=".drawable.CaClothes"></activity>
     </application>
 
 </manifest>

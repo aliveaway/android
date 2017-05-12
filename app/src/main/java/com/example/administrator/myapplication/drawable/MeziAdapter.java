@@ -1,34 +1,64 @@
 package com.example.administrator.myapplication.drawable;
 
 import android.content.Context;
-import android.widget.Gallery;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.example.administrator.myapplication.base.CommonAdapter;
-import com.example.administrator.myapplication.base.ViewHolder;
-
-import java.util.List;
+import com.example.administrator.myapplication.R;
 
 /**
  * Created by Administrator on 2017/5/10 0010.
  */
 
-public class MeziAdapter extends CommonAdapter<Integer> {
+public class MeziAdapter extends BaseAdapter {
 
     private Context mContext;
+    private int[] mData;
+    private LayoutInflater layoutInflater;
 
-    public MeziAdapter(Context context, List<Integer> mData, int layoutId) {
-        super(context, mData, layoutId);
+    public MeziAdapter(Context context, int[] mData) {
         this.mContext = context;
+        this.mData = mData;
+        layoutInflater = LayoutInflater.from(mContext);
     }
 
     @Override
-    public void bindView(ViewHolder viewHolder, Integer obj) {
-        ImageView img = new ImageView(this.mContext);
-        img.setImageResource(obj);
-        img.setScaleType(ImageView.ScaleType.FIT_XY);
-        img.setLayoutParams(new Gallery.LayoutParams(250, 250));
-        /*TypedArray typedArray = mContext.obtainStyledAttributes(R.styleable.);
-        img.setBackgroundResource(typedArray.getResourceId(R.styleable.Gallery_android_galleryItemBackground, 0));*/
+    public int getCount() {
+        return mData.length;
     }
+
+    @Override
+    public Object getItem(int position) {
+        return mData[position];
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder vieWHolder;
+        if (convertView == null) {
+            convertView = layoutInflater.inflate(R.layout.meinv_item, parent, false);
+            vieWHolder = new ViewHolder();
+            vieWHolder.imageView = (ImageView) convertView.findViewById(R.id.meinv_item);
+            convertView.setTag(vieWHolder);
+        } else {
+            vieWHolder = (ViewHolder) convertView.getTag();
+        }
+
+        vieWHolder.imageView.setImageResource(mData[position]);
+
+        return convertView;
+    }
+
+    class ViewHolder {
+        ImageView imageView;
+    }
+
 }
